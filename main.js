@@ -15,13 +15,14 @@ let linhas = '';
 form.addEventListener('submit' , function(e) {
     e.preventDefault();
 
-    adcionaLinha();
+    adicionaLinha();
     atualizaTabela();
     atualizaMediaFinal();
+    calculaMediaFinal();
 
 });
 
-function adcionaLinha() {
+function adicionaLinha() {
 
     const inputNomeAtividade = document.getElementById('nome-atividade');
     const inputNotaAtividade = document.getElementById('nota-atividade');
@@ -55,14 +56,14 @@ function atualizaTabela() {
 }
 
 function atualizaMediaFinal() {
-    const mediaFinal = calculandoMediaFinal();
+    const mediaFinal = calculaMediaFinal();
 
     document.getElementById('media-final-valor').innerHTML = mediaFinal;
     document.getElementById('media-final-resultado').innerHTML = mediaFinal >= notaMinima ? spanAprovado : spanReprovado;
     
 }
 
-function calculandoMediaFinal() {
+function calculaMediaFinal() {
         let somaDasNotas = 0;
 
     for ( let i = 0; i < notas.length; i++ ) {
